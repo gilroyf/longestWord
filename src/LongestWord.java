@@ -2,6 +2,15 @@ import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+/*
+find longest word
+
+given I = length of input
+      D = size of dictionary
+      L = average length of word in dictionary
+
+      Complexity is 0(I + DL)
+ */
 public class LongestWord {
     public static String getLongestWord(String input, Set<String> dictionary) {
         Map<Character, Integer> inputFrequencyMap = createFrequencyCountMap(input);
