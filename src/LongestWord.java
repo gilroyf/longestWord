@@ -18,7 +18,7 @@ public class LongestWord {
         Map<Character, Integer> inputFrequencyMap = createFrequencyCountMap(input);
         String longestWord = "";
         for (String dictEntry : dictionary) {
-            if (canFormWord(dictEntry, inputFrequencyMap)) {
+            if (canFormWord(dictEntry, inputFrequencyMap, input.length())) {
                 if (dictEntry.length() > longestWord.length())
                     longestWord = dictEntry;
             }
@@ -33,7 +33,9 @@ public class LongestWord {
         ));
     }
 
-    private static boolean canFormWord(String word, Map<Character, Integer> inputFrequencyMap) {
+    private static boolean canFormWord(String word, Map<Character, Integer> inputFrequencyMap, int totalCharactersInInput) {
+        if (totalCharactersInInput < word.length())
+            return false;
         Map<Character, Integer> wordFreqMap = createFrequencyCountMap(word);
         for (Map.Entry<Character, Integer> wordEntry: wordFreqMap.entrySet())
         {
