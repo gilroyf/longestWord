@@ -3,7 +3,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 /*
-find longest word
+find longest word using any of the characters in input
 
 given I = length of input
       D = size of dictionary
@@ -13,6 +13,8 @@ given I = length of input
  */
 public class LongestWord {
     public static String getLongestWord(String input, Set<String> dictionary) {
+        if (input == null || input.isBlank())
+            return null;
         Map<Character, Integer> inputFrequencyMap = createFrequencyCountMap(input);
         String longestWord = "";
         for (String dictEntry : dictionary) {
